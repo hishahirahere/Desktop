@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C362983-D6B7-4271-8026-7CCF7FAFED0E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Shahira_12RPLD</RootNamespace>
+    <AssemblyName>Shahira_12RPLD</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.8, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.8\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dashboard.Designer.cs">
+      <DependentUpon>dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DashboardUser.Designer.cs">
+      <DependentUpon>DashboardUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="db.cs" />
+    <Compile Include="FCariJadwal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCariJadwal.Designer.cs">
+      <DependentUpon>FCariJadwal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FJadwalKereta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FJadwalKereta.Designer.cs">
+      <DependentUpon>FJadwalKereta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FKelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FKelas.Designer.cs">
+      <DependentUpon>FKelas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FKereta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FKereta.Designer.cs">
+      <DependentUpon>FKereta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FKonfirmasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FKonfirmasi.Designer.cs">
+      <DependentUpon>FKonfirmasi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPenumpang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPenumpang.Designer.cs">
+      <DependentUpon>FPenumpang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPilihKursi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPilihKursi.Designer.cs">
+      <DependentUpon>FPilihKursi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRole.Designer.cs">
+      <DependentUpon>FRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FStasiun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FStasiun.Designer.cs">
+      <DependentUpon>FStasiun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FUser.Designer.cs">
+      <DependentUpon>FUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KFKereta.cs" />
+    <Compile Include="MDIParent1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent1.Designer.cs">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="dashboard.resx">
+      <DependentUpon>dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardUser.resx">
+      <DependentUpon>DashboardUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCariJadwal.resx">
+      <DependentUpon>FCariJadwal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FJadwalKereta.resx">
+      <DependentUpon>FJadwalKereta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FKelas.resx">
+      <DependentUpon>FKelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FKereta.resx">
+      <DependentUpon>FKereta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FKonfirmasi.resx">
+      <DependentUpon>FKonfirmasi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPenumpang.resx">
+      <DependentUpon>FPenumpang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPilihKursi.resx">
+      <DependentUpon>FPilihKursi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRole.resx">
+      <DependentUpon>FRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FStasiun.resx">
+      <DependentUpon>FStasiun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FUser.resx">
+      <DependentUpon>FUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
