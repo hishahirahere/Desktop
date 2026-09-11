@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Shahira_12RPLD
 {
-    //iuiu
+    //i
     public partial class FKonfirmasi : Form
     {
         private string idJadwal;
