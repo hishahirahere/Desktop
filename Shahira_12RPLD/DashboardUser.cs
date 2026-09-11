@@ -28,5 +28,11 @@ namespace Shahira_12RPLD
             pnlcontent.Controls.Clear();
             pnlcontent.Controls.Add(pnldashboard);
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            FPembayaran Cari = new FPembayaran() { TopLevel = false, TopMost = true };
+            KFKereta.formkereta(Cari, pnlcontent);
+        }
     }
 }

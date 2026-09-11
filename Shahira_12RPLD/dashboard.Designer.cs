@@ -31,6 +31,11 @@ namespace Shahira_12RPLD
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2CirclePictureBox13 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2Shapes3 = new Guna.UI2.WinForms.Guna2Shapes();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -68,12 +73,8 @@ namespace Shahira_12RPLD
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.guna2Shapes3 = new Guna.UI2.WinForms.Guna2Shapes();
-            this.guna2CirclePictureBox13 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox11)).BeginInit();
@@ -96,7 +97,6 @@ namespace Shahira_12RPLD
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox13)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -135,6 +135,65 @@ namespace Shahira_12RPLD
             this.panel1.Size = new System.Drawing.Size(302, 1152);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // guna2CirclePictureBox13
+            // 
+            this.guna2CirclePictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox13.Image")));
+            this.guna2CirclePictureBox13.ImageRotate = 0F;
+            this.guna2CirclePictureBox13.Location = new System.Drawing.Point(31, 729);
+            this.guna2CirclePictureBox13.Name = "guna2CirclePictureBox13";
+            this.guna2CirclePictureBox13.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox13.Size = new System.Drawing.Size(40, 35);
+            this.guna2CirclePictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2CirclePictureBox13.TabIndex = 33;
+            this.guna2CirclePictureBox13.TabStop = false;
+            // 
+            // guna2Shapes3
+            // 
+            this.guna2Shapes3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(84)))), ((int)(((byte)(150)))));
+            this.guna2Shapes3.Location = new System.Drawing.Point(-19, 940);
+            this.guna2Shapes3.Name = "guna2Shapes3";
+            this.guna2Shapes3.PolygonSkip = 1;
+            this.guna2Shapes3.Rotate = 0F;
+            this.guna2Shapes3.Shape = Guna.UI2.WinForms.Enums.ShapeType.Line;
+            this.guna2Shapes3.Size = new System.Drawing.Size(336, 18);
+            this.guna2Shapes3.TabIndex = 32;
+            this.guna2Shapes3.Text = "guna2Shapes3";
+            this.guna2Shapes3.Zoom = 80;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(23, 789);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(93, 20);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "LAPORAN";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(23, 629);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(111, 20);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "TRANSAKSI";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(77, 738);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(147, 26);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "Pembayaran";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // guna2CirclePictureBox3
             // 
@@ -535,9 +594,9 @@ namespace Shahira_12RPLD
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(453, 353);
+            this.pictureBox3.Location = new System.Drawing.Point(446, 353);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(357, 194);
+            this.pictureBox3.Size = new System.Drawing.Size(370, 194);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
@@ -562,64 +621,6 @@ namespace Shahira_12RPLD
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(77, 738);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(147, 26);
-            this.label16.TabIndex = 29;
-            this.label16.Text = "Pembayaran";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(23, 629);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(111, 20);
-            this.label17.TabIndex = 30;
-            this.label17.Text = "TRANSAKSI";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(23, 789);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(93, 20);
-            this.label18.TabIndex = 31;
-            this.label18.Text = "LAPORAN";
-            // 
-            // guna2Shapes3
-            // 
-            this.guna2Shapes3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(84)))), ((int)(((byte)(150)))));
-            this.guna2Shapes3.Location = new System.Drawing.Point(-19, 940);
-            this.guna2Shapes3.Name = "guna2Shapes3";
-            this.guna2Shapes3.PolygonSkip = 1;
-            this.guna2Shapes3.Rotate = 0F;
-            this.guna2Shapes3.Shape = Guna.UI2.WinForms.Enums.ShapeType.Line;
-            this.guna2Shapes3.Size = new System.Drawing.Size(336, 18);
-            this.guna2Shapes3.TabIndex = 32;
-            this.guna2Shapes3.Text = "guna2Shapes3";
-            this.guna2Shapes3.Zoom = 80;
-            // 
-            // guna2CirclePictureBox13
-            // 
-            this.guna2CirclePictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox13.Image")));
-            this.guna2CirclePictureBox13.ImageRotate = 0F;
-            this.guna2CirclePictureBox13.Location = new System.Drawing.Point(31, 729);
-            this.guna2CirclePictureBox13.Name = "guna2CirclePictureBox13";
-            this.guna2CirclePictureBox13.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox13.Size = new System.Drawing.Size(40, 35);
-            this.guna2CirclePictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox13.TabIndex = 33;
-            this.guna2CirclePictureBox13.TabStop = false;
-            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -633,6 +634,7 @@ namespace Shahira_12RPLD
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox11)).EndInit();
@@ -657,7 +659,6 @@ namespace Shahira_12RPLD
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox13)).EndInit();
             this.ResumeLayout(false);
 
         }

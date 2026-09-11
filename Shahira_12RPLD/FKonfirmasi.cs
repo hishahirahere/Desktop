@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace Shahira_12RPLD
 {
-    //i
     public partial class FKonfirmasi : Form
     {
         private string idJadwal;
@@ -39,26 +38,14 @@ namespace Shahira_12RPLD
             SetupTombol();
         }
 
-        // ============ HEADER GRADASI BIRU ============
+        // ============ HEADER BIRU SOLID (JUDUL + INFO JADWAL JADI SATU) ============
         private void SetupHeader()
         {
-            panelHeader.Paint += (s, e) =>
-            {
-                using (LinearGradientBrush brush = new LinearGradientBrush(
-                    panelHeader.ClientRectangle,
-                    WARNA_BIRU_TUA, WARNA_BIRU, 45F))
-                {
-                    e.Graphics.FillRectangle(brush, panelHeader.ClientRectangle);
-                }
-            };
+            panelHeader.BackColor = WARNA_BIRU_TUA;
 
-            label.Text = "Konfirmasi Pemesanan";
-            label.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            label.ForeColor = Color.White;
-            label.BackColor = Color.Transparent;
         }
 
-        // ============ AMBIL & TAMPILKAN INFO JADWAL ============
+        // ============ AMBIL & TAMPILKAN INFO JADWAL (DI DALAM PANEL BIRU) ============
         private void TampilkanInfoJadwal()
         {
             string query = "SELECT t_kereta.nama_kereta, " +
@@ -83,22 +70,27 @@ namespace Shahira_12RPLD
 
             DataRow baris = db.ds.Tables[0].Rows[0];
 
-            // Panel info: latar biru muda, teks gelap, dikumpulkan jadi satu blok rapi
-            panelInfo.BackColor = WARNA_BIRU_MUDA;
+            // Semua label info ditaruh DI DALAM panelHeader yang sama (biru solid),
+            // teks putih semua, mengikuti gaya FPilihKursi
+            lblKereta.Text = baris["nama_kereta"] + " (" + baris["nama_kelas"] + ")";
+            lblRute.Text = baris["stasiun_asal"] + "  ->  " + baris["stasiun_tujuan"];
+            lblTanggal.Text = Convert.ToDateTime(baris["tanggal"]).ToString("dd-MM-yyyy") +
+                               "   |   " + baris["jam_berangkat"] + " - " + baris["jam_tiba"];
 
-            lblKereta.Text = "Kereta        : " + baris["nama_kereta"] + " (" + baris["nama_kelas"] + ")";
-            lblRute.Text = "Rute            : " + baris["stasiun_asal"] + "  ->  " + baris["stasiun_tujuan"];
-            lblTanggal.Text = "Tanggal      : " + Convert.ToDateTime(baris["tanggal"]).ToString("dd-MM-yyyy");
-            lblJam.Text = "Jam             : " + baris["jam_berangkat"] + " - " + baris["jam_tiba"];
+            lblKereta.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblKereta.ForeColor = Color.White;
+            lblKereta.BackColor = WARNA_BIRU_TUA;
 
-            foreach (Label lbl in new[] { lblKereta, lblRute, lblTanggal, lblJam })
-            {
-                lbl.Font = new Font("Consolas", 10F, FontStyle.Regular);
-                lbl.ForeColor = Color.FromArgb(30, 41, 59);
-                lbl.BackColor = Color.Transparent;
-            }
+            lblRute.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
+            lblRute.ForeColor = Color.FromArgb(219, 234, 254);
+            lblRute.BackColor = WARNA_BIRU_TUA;
 
-            lblKelas.Text = ""; // digabung ke lblKereta, kolom lama disembunyikan
+            lblTanggal.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblTanggal.ForeColor = Color.White;
+            lblTanggal.BackColor = WARNA_BIRU_TUA;
+
+            // lblJam dan lblKelas tidak dipakai lagi (info sudah digabung ke lblTanggal)
+            lblJam.Visible = false;
             lblKelas.Visible = false;
         }
 
@@ -199,9 +191,9 @@ namespace Shahira_12RPLD
             MessageBox.Show("Pemesanan berhasil dibuat. Silakan lanjutkan pembayaran.",
                              "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // FPembayaran f = new FPembayaran(idPemesananBaru, totalHarga);
-            // f.Show();
-            this.Hide();
+            FPembayaran f = new FPembayaran();
+            f.Show();
+            this.Close();
         }
     }
 }

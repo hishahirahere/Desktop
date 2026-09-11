@@ -61,6 +61,8 @@ namespace Shahira_12RPLD
 
         private void label14_Click(object sender, EventArgs e)
         {
+            FDataPemesanan DataPesanan = new FDataPemesanan() { TopLevel = false, TopMost = true };
+            KFKereta.formkereta(DataPesanan, pnlcontent);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -71,6 +73,12 @@ namespace Shahira_12RPLD
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+            FTPembayaran DataPembayaran = new FTPembayaran() { TopLevel = false, TopMost = true };
+            KFKereta.formkereta(DataPembayaran, pnlcontent);
         }
     }
 }

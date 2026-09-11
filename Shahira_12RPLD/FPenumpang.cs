@@ -105,5 +105,30 @@ namespace Shahira_12RPLD
             f.Show();
             this.Hide();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPenumpang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panelHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblRingkasan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

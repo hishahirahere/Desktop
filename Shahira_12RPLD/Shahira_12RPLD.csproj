@@ -72,6 +72,24 @@
     <Compile Include="FCariJadwal.Designer.cs">
       <DependentUpon>FCariJadwal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FDataPemesanan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDataPemesanan.Designer.cs">
+      <DependentUpon>FDataPemesanan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDetailPesanan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDetailPesanan.Designer.cs">
+      <DependentUpon>FDetailPesanan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDPembayaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDPembayaran.Designer.cs">
+      <DependentUpon>FDPembayaran.cs</DependentUpon>
+    </Compile>
     <Compile Include="FJadwalKereta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +120,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FPembayaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPembayaran.Designer.cs">
+      <DependentUpon>FPembayaran.cs</DependentUpon>
+    </Compile>
     <Compile Include="FPenumpang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +149,12 @@
     </Compile>
     <Compile Include="FStasiun.Designer.cs">
       <DependentUpon>FStasiun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTPembayaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FTPembayaran.Designer.cs">
+      <DependentUpon>FTPembayaran.cs</DependentUpon>
     </Compile>
     <Compile Include="FUser.cs">
       <SubType>Form</SubType>
@@ -150,6 +180,15 @@
     <EmbeddedResource Include="FCariJadwal.resx">
       <DependentUpon>FCariJadwal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FDataPemesanan.resx">
+      <DependentUpon>FDataPemesanan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDetailPesanan.resx">
+      <DependentUpon>FDetailPesanan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDPembayaran.resx">
+      <DependentUpon>FDPembayaran.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FJadwalKereta.resx">
       <DependentUpon>FJadwalKereta.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +204,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FPembayaran.resx">
+      <DependentUpon>FPembayaran.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FPenumpang.resx">
       <DependentUpon>FPenumpang.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FStasiun.resx">
       <DependentUpon>FStasiun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTPembayaran.resx">
+      <DependentUpon>FTPembayaran.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FUser.resx">
       <DependentUpon>FUser.cs</DependentUpon>

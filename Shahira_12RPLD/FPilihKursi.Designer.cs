@@ -112,6 +112,7 @@ namespace Shahira_12RPLD
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1924, 425);
             this.panelHeader.TabIndex = 8;
+            this.panelHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHeader_Paint);
             // 
             // lblRute
             // 
