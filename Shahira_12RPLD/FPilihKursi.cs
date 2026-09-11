@@ -13,48 +13,29 @@ namespace Shahira_12RPLD
 {
     public partial class FPilihKursi : Form
     {
-        private string idJadwal;
-        private List<string> kursiTerpilih = new List<string>();
+        // ============ VARIABEL PENYIMPAN DATA ANTAR FORM ============
+        private string idJadwal;                                  // id_jadwal dikirim dari FCariJadwal
+        private List<string> kursiTerpilih = new List<string>();  // simpan "id_kursi|no_kursi" yang dicentang user
 
+        // Warna tema (biar konsisten dipakai berulang)
         private readonly Color WARNA_BIRU = Color.FromArgb(37, 99, 235);
         private readonly Color WARNA_ABU = Color.FromArgb(229, 231, 235);
         private readonly Color WARNA_ABU_TEKS = Color.FromArgb(156, 163, 175);
+
         public FPilihKursi(string idJadwalTerpilih)
         {
             InitializeComponent();
             idJadwal = idJadwalTerpilih;
         }
 
-        private void btnLanjut_Click(object sender, EventArgs e)
-        {
-            kursiTerpilih.Clear();
-
-            foreach (Control kontrol in flowLayoutPanel1.Controls)
-            {
-                if (kontrol is Button btn && btn.BackColor.ToArgb() == WARNA_BIRU.ToArgb())
-                {
-                    // simpan gabungan id_kursi dan no_kursi, dipisah tanda |
-                    kursiTerpilih.Add(btn.Tag.ToString() + "|" + btn.Text);
-                }
-            }
-
-            if (kursiTerpilih.Count == 0)
-            {
-                MessageBox.Show("Pilih minimal 1 kursi terlebih dahulu");
-                return;
-            }
-
-            // Buka form berikutnya (Data Penumpang), kirim id_jadwal + daftar kursi terpilih
-            FPenumpang f = new FPenumpang(idJadwal, kursiTerpilih);
-            f.Show();
-            this.Hide();
-        }
-
+        // ============ SAAT FORM DIBUKA ============
         private void FPilihKursi_Load(object sender, EventArgs e)
         {
             TampilkanInfoJadwal();
             TampilkanKursi();
         }
+
+        // ============ TAMPILKAN INFO JADWAL DENGAN HEADER BERGRADASI ============
         private void TampilkanInfoJadwal()
         {
             string query = "SELECT t_kereta.nama_kereta, t_kereta.kapasitas, " +
@@ -74,7 +55,6 @@ namespace Shahira_12RPLD
             if (db.ds.Tables[0].Rows.Count == 0)
             {
                 MessageBox.Show("Data jadwal tidak ditemukan");
-                lblInfoJadwal.Text = "";
                 return;
             }
 
@@ -91,15 +71,39 @@ namespace Shahira_12RPLD
             string harga = baris["harga"].ToString();
             string sisaKursi = baris["sisa_kursi"].ToString();
 
-            lblInfoJadwal.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblInfoJadwal.ForeColor = Color.FromArgb(31, 41, 55);
-            lblInfoJadwal.Text = namaKereta + " (" + kelas + ")\n" +
-                                 stasiunAsal + " -> " + stasiunTujuan + "\n" +
-                                 tanggal + " | " + jamBerangkat + " - " + jamTiba + "\n" +
-                                 "Harga: Rp" + harga + " | Kapasitas: " + kapasitas +
-                                 " | Sisa: " + sisaKursi;
-    }
+            // Panel header dengan gradasi biru
+            panelHeader.Paint += (s, e) =>
+            {
+                using (LinearGradientBrush brush = new LinearGradientBrush(
+                    panelHeader.ClientRectangle,
+                    Color.FromArgb(30, 58, 138),
+                    Color.FromArgb(37, 99, 235),
+                    45F))
+                {
+                    e.Graphics.FillRectangle(brush, panelHeader.ClientRectangle);
+                }
+            };
 
+            lblKereta.Text = namaKereta + " (" + kelas + ")";
+            lblKereta.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblKereta.ForeColor = Color.White;
+            lblKereta.BackColor = Color.Transparent;
+
+            lblRute.Text = stasiunAsal + "  ->  " + stasiunTujuan;
+            lblRute.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
+            lblRute.ForeColor = Color.FromArgb(219, 234, 254);
+            lblRute.BackColor = Color.Transparent;
+
+            lblBadge.Text = tanggal + "   |   " + jamBerangkat + " - " + jamTiba +
+                            "   |   Rp" + harga + "   |   Sisa " + sisaKursi + "/" + kapasitas;
+            lblBadge.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblBadge.ForeColor = Color.White;
+            lblBadge.BackColor = Color.Transparent;
+
+            panelHeader.Invalidate(); // paksa gambar ulang biar gradasi langsung muncul
+        }
+
+        // ============ TAMPILKAN KURSI SESUAI DATA t_kursi (VERSI TAMPILAN BARU) ============
         private void TampilkanKursi()
         {
             db.crud("SELECT * FROM t_kursi WHERE id_jadwal = '" + idJadwal + "' ORDER BY LENGTH(no_kursi), no_kursi");
@@ -111,7 +115,7 @@ namespace Shahira_12RPLD
             {
                 string status = baris["status"].ToString();
 
-                Button btn = new Button(); 
+                Button btn = new Button();
                 btn.Text = baris["no_kursi"].ToString();
                 btn.Tag = baris["id_kursi"].ToString(); // simpan id_kursi untuk dipakai nanti
                 btn.FlatStyle = FlatStyle.Flat;
@@ -124,7 +128,7 @@ namespace Shahira_12RPLD
 
                 BuatSudutMembulat(btn, 10); // sudut membulat
 
-                if(status == "terisi")
+                if (status == "terisi")
                 {
                     // Kursi sudah terisi: abu-abu, tidak bisa diklik
                     btn.Enabled = false;
@@ -151,6 +155,8 @@ namespace Shahira_12RPLD
                                  "(kursi otomatis dibuat sesuai kapasitas kereta saat jadwal disimpan).");
             }
         }
+
+        // Toggle warna tombol kursi saat diklik: putih outline (belum pilih) <-> biru solid (dipilih)
         private void ToggleKursi(Button btn)
         {
             bool sedangDipilih = btn.BackColor.ToArgb() == WARNA_BIRU.ToArgb();
@@ -167,24 +173,9 @@ namespace Shahira_12RPLD
                 btn.ForeColor = Color.White;
                 btn.FlatAppearance.BorderSize = 0;
             }
-
-            PerbaruiTeksTombolLanjut();
         }
-        private void PerbaruiTeksTombolLanjut()
-        {
-            int jumlahDipilih = 0;
-            foreach (Control kontrol in flowLayoutPanel1.Controls)
-            {
-                if (kontrol is Button btn && btn.BackColor.ToArgb() == WARNA_BIRU.ToArgb())
-                {
-                    jumlahDipilih++;
-                }
-            }
 
-            btnLanjut.Text = jumlahDipilih == 0
-                ? "Lanjut ke Data Penumpang"
-                : "Lanjut ke Data Penumpang (" + jumlahDipilih + " kursi)";
-        }
+        // Membuat sudut tombol jadi membulat (rounded corner) memakai GraphicsPath
         private void BuatSudutMembulat(Button btn, int radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -195,6 +186,32 @@ namespace Shahira_12RPLD
             path.AddArc(0, btn.Height - d, d, d, 90, 90);
             path.CloseFigure();
             btn.Region = new Region(path);
+        }
+
+        // ============ TOMBOL LANJUT KE DATA PENUMPANG ============
+        private void btnLanjut_Click(object sender, EventArgs e)
+        {
+            kursiTerpilih.Clear();
+
+            foreach (Control kontrol in flowLayoutPanel1.Controls)
+            {
+                if (kontrol is Button btn && btn.BackColor.ToArgb() == WARNA_BIRU.ToArgb())
+                {
+                    // simpan gabungan id_kursi dan no_kursi, dipisah tanda |
+                    kursiTerpilih.Add(btn.Tag.ToString() + "|" + btn.Text);
+                }
+            }
+
+            if (kursiTerpilih.Count == 0)
+            {
+                MessageBox.Show("Pilih minimal 1 kursi terlebih dahulu");
+                return;
+            }
+
+            // Buka form berikutnya (Data Penumpang), kirim id_jadwal + daftar kursi terpilih
+            FPenumpang f = new FPenumpang(idJadwal, kursiTerpilih);
+            f.Show();
+            this.Hide();
         }
     }
 }

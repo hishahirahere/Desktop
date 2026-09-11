@@ -34,11 +34,13 @@ namespace Shahira_12RPLD
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblInfoJadwal = new System.Windows.Forms.Label();
+            this.panelHeader = new System.Windows.Forms.Panel();
+            this.lblRute = new System.Windows.Forms.Label();
+            this.lblKereta = new System.Windows.Forms.Label();
+            this.lblBadge = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -99,25 +101,47 @@ namespace Shahira_12RPLD
             this.label8.TabIndex = 19;
             this.label8.Text = "Pesan Tiket";
             // 
-            // panel1
+            // panelHeader
             // 
-            this.panel1.Controls.Add(this.lblInfoJadwal);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1924, 425);
-            this.panel1.TabIndex = 8;
+            this.panelHeader.Controls.Add(this.lblBadge);
+            this.panelHeader.Controls.Add(this.lblRute);
+            this.panelHeader.Controls.Add(this.lblKereta);
+            this.panelHeader.Controls.Add(this.panel3);
+            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(1924, 425);
+            this.panelHeader.TabIndex = 8;
             // 
-            // lblInfoJadwal
+            // lblRute
             // 
-            this.lblInfoJadwal.AutoSize = true;
-            this.lblInfoJadwal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoJadwal.Location = new System.Drawing.Point(28, 108);
-            this.lblInfoJadwal.Name = "lblInfoJadwal";
-            this.lblInfoJadwal.Size = new System.Drawing.Size(169, 32);
-            this.lblInfoJadwal.TabIndex = 21;
-            this.lblInfoJadwal.Text = "Info Jadwal";
+            this.lblRute.AutoSize = true;
+            this.lblRute.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRute.Location = new System.Drawing.Point(28, 174);
+            this.lblRute.Name = "lblRute";
+            this.lblRute.Size = new System.Drawing.Size(169, 32);
+            this.lblRute.TabIndex = 22;
+            this.lblRute.Text = "Info Jadwal";
+            // 
+            // lblKereta
+            // 
+            this.lblKereta.AutoSize = true;
+            this.lblKereta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKereta.Location = new System.Drawing.Point(28, 108);
+            this.lblKereta.Name = "lblKereta";
+            this.lblKereta.Size = new System.Drawing.Size(169, 32);
+            this.lblKereta.TabIndex = 21;
+            this.lblKereta.Text = "Info Jadwal";
+            // 
+            // lblBadge
+            // 
+            this.lblBadge.AutoSize = true;
+            this.lblBadge.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBadge.Location = new System.Drawing.Point(28, 238);
+            this.lblBadge.Name = "lblBadge";
+            this.lblBadge.Size = new System.Drawing.Size(169, 32);
+            this.lblBadge.TabIndex = 23;
+            this.lblBadge.Text = "Info Jadwal";
             // 
             // FPilihKursi
             // 
@@ -125,7 +149,7 @@ namespace Shahira_12RPLD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1170);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelHeader);
             this.Name = "FPilihKursi";
             this.Text = "FPilihKursi";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -133,8 +157,8 @@ namespace Shahira_12RPLD
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -145,8 +169,10 @@ namespace Shahira_12RPLD
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblInfoJadwal;
+        private System.Windows.Forms.Panel panelHeader;
+        private System.Windows.Forms.Label lblKereta;
         private Guna.UI2.WinForms.Guna2Button btnLanjut;
+        private System.Windows.Forms.Label lblRute;
+        private System.Windows.Forms.Label lblBadge;
     }
 }

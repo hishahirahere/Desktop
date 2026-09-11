@@ -34,24 +34,24 @@ namespace Shahira_12RPLD
             this.colKursi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colpenumpang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNIK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnKonfirmasi = new Guna.UI2.WinForms.Guna2Button();
             this.lblTotalHarga = new System.Windows.Forms.Label();
             this.lblJumKursi = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelInfo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblKelas = new System.Windows.Forms.Label();
             this.lblJam = new System.Windows.Forms.Label();
             this.lblTanggal = new System.Windows.Forms.Label();
             this.lblRute = new System.Windows.Forms.Label();
             this.lblKereta = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.panelHeader = new System.Windows.Forms.Panel();
+            this.lblJudul = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKonfirmasi)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelInfo.SuspendLayout();
+            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLanjut
@@ -105,15 +105,15 @@ namespace Shahira_12RPLD
             this.colNIK.Name = "colNIK";
             this.colNIK.Width = 150;
             // 
-            // label1
+            // label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(522, 102);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(550, 46);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "KONFIRMASI PEMESANAN";
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.Location = new System.Drawing.Point(522, 102);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(550, 46);
+            this.label.TabIndex = 20;
+            this.label.Text = "KONFIRMASI PEMESANAN";
             // 
             // panel2
             // 
@@ -165,21 +165,21 @@ namespace Shahira_12RPLD
             this.lblJumKursi.TabIndex = 33;
             this.lblJumKursi.Text = "Jumlah Kursi :";
             // 
-            // panel1
+            // panelInfo
             // 
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.lblKelas);
-            this.panel1.Controls.Add(this.lblJam);
-            this.panel1.Controls.Add(this.lblTanggal);
-            this.panel1.Controls.Add(this.lblRute);
-            this.panel1.Controls.Add(this.lblKereta);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1924, 517);
-            this.panel1.TabIndex = 8;
+            this.panelInfo.Controls.Add(this.label2);
+            this.panelInfo.Controls.Add(this.lblKelas);
+            this.panelInfo.Controls.Add(this.lblJam);
+            this.panelInfo.Controls.Add(this.lblTanggal);
+            this.panelInfo.Controls.Add(this.lblRute);
+            this.panelInfo.Controls.Add(this.lblKereta);
+            this.panelInfo.Controls.Add(this.label);
+            this.panelInfo.Controls.Add(this.panelHeader);
+            this.panelInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelInfo.Location = new System.Drawing.Point(0, 0);
+            this.panelInfo.Name = "panelInfo";
+            this.panelInfo.Size = new System.Drawing.Size(1924, 517);
+            this.panelInfo.TabIndex = 8;
             // 
             // label2
             // 
@@ -241,26 +241,26 @@ namespace Shahira_12RPLD
             this.lblKereta.TabIndex = 27;
             this.lblKereta.Text = "Kereta     :";
             // 
-            // panel3
+            // panelHeader
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(31)))), ((int)(((byte)(104)))));
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1924, 88);
-            this.panel3.TabIndex = 18;
+            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(31)))), ((int)(((byte)(104)))));
+            this.panelHeader.Controls.Add(this.lblJudul);
+            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(1924, 88);
+            this.panelHeader.TabIndex = 18;
             // 
-            // label8
+            // lblJudul
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(65, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(241, 46);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Pesan Tiket";
+            this.lblJudul.AutoSize = true;
+            this.lblJudul.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJudul.ForeColor = System.Drawing.Color.White;
+            this.lblJudul.Location = new System.Drawing.Point(65, 22);
+            this.lblJudul.Name = "lblJudul";
+            this.lblJudul.Size = new System.Drawing.Size(241, 46);
+            this.lblJudul.TabIndex = 19;
+            this.lblJudul.Text = "Pesan Tiket";
             // 
             // FKonfirmasi
             // 
@@ -268,7 +268,7 @@ namespace Shahira_12RPLD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1170);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelInfo);
             this.Name = "FKonfirmasi";
             this.Text = "FKonfirmasi";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -276,10 +276,10 @@ namespace Shahira_12RPLD
             ((System.ComponentModel.ISupportInitialize)(this.dgvKonfirmasi)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelInfo.ResumeLayout(false);
+            this.panelInfo.PerformLayout();
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -291,19 +291,19 @@ namespace Shahira_12RPLD
         private System.Windows.Forms.DataGridViewTextBoxColumn colKursi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colpenumpang;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNIK;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTotalHarga;
         private System.Windows.Forms.Label lblJumKursi;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelInfo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblKelas;
         private System.Windows.Forms.Label lblJam;
         private System.Windows.Forms.Label lblTanggal;
         private System.Windows.Forms.Label lblRute;
         private System.Windows.Forms.Label lblKereta;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panelHeader;
+        private System.Windows.Forms.Label lblJudul;
         private Guna.UI2.WinForms.Guna2Button btnKonfirmasi;
     }
 }
