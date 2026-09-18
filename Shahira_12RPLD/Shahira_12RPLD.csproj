@@ -114,6 +114,12 @@
     <Compile Include="FKonfirmasi.Designer.cs">
       <DependentUpon>FKonfirmasi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FLaporan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FLaporan.Designer.cs">
+      <DependentUpon>FLaporan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FKonfirmasi.resx">
       <DependentUpon>FKonfirmasi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FLaporan.resx">
+      <DependentUpon>FLaporan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

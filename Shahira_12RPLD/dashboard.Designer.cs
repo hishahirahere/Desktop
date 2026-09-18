@@ -229,6 +229,7 @@ namespace Shahira_12RPLD
             this.label15.Size = new System.Drawing.Size(100, 26);
             this.label15.TabIndex = 25;
             this.label15.Text = "Laporan";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // guna2CirclePictureBox12
             // 

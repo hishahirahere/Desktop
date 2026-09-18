@@ -80,5 +80,11 @@ namespace Shahira_12RPLD
             FTPembayaran DataPembayaran = new FTPembayaran() { TopLevel = false, TopMost = true };
             KFKereta.formkereta(DataPembayaran, pnlcontent);
         }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            FLaporan Laporan = new FLaporan() { TopLevel = false, TopMost = true };
+            KFKereta.formkereta(Laporan, pnlcontent);
+        }
     }
 }
