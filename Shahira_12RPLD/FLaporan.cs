@@ -13,14 +13,13 @@ namespace Shahira_12RPLD
 {
     public partial class FLaporan : Form
     {
-        private readonly Color WARNA_BIRU_TUA = Color.FromArgb(30, 58, 138);
+        // Warna khusus untuk kolom Status di dalam tabel saja
         private readonly Color WARNA_BIRU = Color.FromArgb(37, 99, 235);
         private readonly Color WARNA_ABU_MUDA = Color.FromArgb(249, 250, 251);
         private readonly Color WARNA_HIJAU = Color.FromArgb(21, 128, 61);
         private readonly Color WARNA_KUNING = Color.FromArgb(161, 98, 7);
         private readonly Color WARNA_MERAH = Color.FromArgb(185, 28, 28);
 
-        // ============ DATA UNTUK KEPERLUAN CETAK ============
         private class BarisLaporan
         {
             public string TanggalPesan, Pemesan, Kereta, Rute, TanggalBerangkat, Status;
@@ -28,7 +27,6 @@ namespace Shahira_12RPLD
         }
         private List<BarisLaporan> daftarLaporan = new List<BarisLaporan>();
         private int indexCetak = 0;
-
         private PrintDocument printDoc = new PrintDocument();
 
         public FLaporan()
@@ -36,13 +34,28 @@ namespace Shahira_12RPLD
             InitializeComponent();
         }
 
-        // ============ SETUP FILTER TANGGAL & STATUS ============
+        // PENTING: nama function di bawah ini (Load) harus SAMA PERSIS dengan
+        // yang sudah tersambung di Designer form kamu. Cek dulu: klik form kosong
+        // di Designer -> F4 -> ikon petir -> baris "Load" -> lihat nama function-nya,
+        // lalu ganti nama function di bawah ini biar SAMA PERSIS.
+        private void FLaporan_Load(object sender, EventArgs e)
+        {
+            SetupFilter();
+            SetupTabel();
+
+            printDoc.DefaultPageSettings.Landscape = true;
+            printDoc.PrintPage += PrintDoc_PrintPage;
+
+            TampilkanLaporan();
+        }
+
+        // ============ ISI DATA COMBOBOX STATUS (bukan styling visual, cuma isi data) ============
         private void SetupFilter()
         {
             dtDari.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             dtSampai.Value = DateTime.Now;
 
-            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList; // pastikan selalu ada item terpilih
+            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatus.Items.Clear();
             cmbStatus.Items.Add("Semua Status");
             cmbStatus.Items.Add("menunggu");
@@ -51,29 +64,20 @@ namespace Shahira_12RPLD
             cmbStatus.SelectedIndex = 0;
         }
 
-        // Ambil status yang dipilih dengan aman, tidak akan pernah crash
         private string AmbilStatusFilter()
         {
-            // Pengaman: kalau ComboBox ternyata masih kosong (belum ke-setup),
-            // isi dulu di sini juga supaya tidak error saat set SelectedIndex
             if (cmbStatus.Items.Count == 0)
             {
-                cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-                cmbStatus.Items.Add("Semua Status");
-                cmbStatus.Items.Add("menunggu");
-                cmbStatus.Items.Add("berhasil");
-                cmbStatus.Items.Add("dibatalkan");
+                SetupFilter(); // pengaman kalau somehow belum ke-setup
             }
-
             if (cmbStatus.SelectedItem == null)
             {
                 cmbStatus.SelectedIndex = 0;
             }
-
             return cmbStatus.SelectedItem != null ? cmbStatus.SelectedItem.ToString() : "Semua Status";
         }
 
-        // ============ STYLING TABEL LAPORAN ============
+        // ============ STYLING TABEL SAJA (panel & tombol TIDAK disentuh) ============
         private void SetupTabel()
         {
             dgvLaporan.BorderStyle = BorderStyle.None;
@@ -85,6 +89,10 @@ namespace Shahira_12RPLD
             dgvLaporan.GridColor = Color.FromArgb(229, 231, 235);
             dgvLaporan.RowTemplate.Height = 34;
 
+            // Pastikan scrollbar aktif, supaya kolom yang kepanjangan (termasuk Status
+            // di ujung kanan) tetap bisa dilihat dengan cara digeser ke kanan
+            dgvLaporan.ScrollBars = ScrollBars.Both;
+
             dgvLaporan.ColumnHeadersDefaultCellStyle.BackColor = WARNA_BIRU;
             dgvLaporan.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgvLaporan.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
@@ -93,14 +101,18 @@ namespace Shahira_12RPLD
 
             dgvLaporan.DefaultCellStyle.Font = new Font("Segoe UI", 9F);
             dgvLaporan.AlternatingRowsDefaultCellStyle.BackColor = WARNA_ABU_MUDA;
-        }
 
-
-        // ============ SETUP PRINTDOCUMENT ============
-        private void SetupPrint()
-        {
-            printDoc.DefaultPageSettings.Landscape = true;
-            printDoc.PrintPage += PrintDoc_PrintPage;
+            // Atur lebar tiap kolom secara spesifik (lebih ramping) supaya
+            // semua kolom termasuk Status muat tanpa perlu discroll
+            dgvLaporan.Columns["colNo"].Width = 35;
+            dgvLaporan.Columns["colTanggal"].Width = 110;
+            dgvLaporan.Columns["colPemesan"].Width = 100;
+            dgvLaporan.Columns["colKereta"].Width = 90;
+            dgvLaporan.Columns["colRute"].Width = 150;
+            dgvLaporan.Columns["colTglBerangkat"].Width = 95;
+            dgvLaporan.Columns["colKursi"].Width = 50;
+            dgvLaporan.Columns["colTotal"].Width = 90;
+            dgvLaporan.Columns["colStatus"].Width = 80;
         }
 
         // ============ AMBIL & TAMPILKAN DATA LAPORAN ============
@@ -196,12 +208,7 @@ namespace Shahira_12RPLD
             }
 
             lblTotalTransaksi.Text = "Total Transaksi : " + totalTransaksi;
-            lblTotalTransaksi.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-            lblTotalTransaksi.ForeColor = Color.FromArgb(75, 85, 99);
-
             lblTotalPendapatan.Text = "Total Pendapatan (Berhasil) : Rp" + totalPendapatan.ToString("N0");
-            lblTotalPendapatan.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            lblTotalPendapatan.ForeColor = WARNA_HIJAU;
 
             if (dgvLaporan.Rows.Count == 0)
             {
@@ -209,7 +216,37 @@ namespace Shahira_12RPLD
             }
         }
 
-        // ============ PROSES MENGGAMBAR HALAMAN CETAK ============
+        // PENTING: nama 2 function tombol di bawah ini juga harus SAMA PERSIS dengan
+        // yang sudah tersambung di Designer. Cek nama aslinya di Properties -> Events
+        // masing-masing tombol, lalu samakan nama function di bawah ini.
+        private void btnTampilkan_Click(object sender, EventArgs e)
+        {
+            if (dtDari.Value > dtSampai.Value)
+            {
+                MessageBox.Show("Tanggal 'Dari' tidak boleh lebih besar dari tanggal 'Sampai'");
+                return;
+            }
+
+            TampilkanLaporan();
+        }
+
+        private void btnCetak_Click(object sender, EventArgs e)
+        {
+            if (daftarLaporan.Count == 0)
+            {
+                MessageBox.Show("Tidak ada data untuk dicetak. Tampilkan laporan terlebih dahulu.");
+                return;
+            }
+
+            indexCetak = 0;
+
+            PrintPreviewDialog preview = new PrintPreviewDialog();
+            preview.Document = printDoc;
+            preview.Width = 1000;
+            preview.Height = 700;
+            preview.ShowDialog();
+        }
+
         private void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -224,14 +261,8 @@ namespace Shahira_12RPLD
             int y = marginAtas;
 
             int[] kolomX = {
-                marginKiri,
-                marginKiri + 110,
-                marginKiri + 260,
-                marginKiri + 380,
-                marginKiri + 560,
-                marginKiri + 660,
-                marginKiri + 730,
-                marginKiri + 850
+                marginKiri, marginKiri + 110, marginKiri + 260, marginKiri + 380,
+                marginKiri + 560, marginKiri + 660, marginKiri + 730, marginKiri + 850
             };
 
             if (indexCetak == 0)
@@ -239,10 +270,9 @@ namespace Shahira_12RPLD
                 g.DrawString("Laporan Pemesanan & Pendapatan", fontJudul, Brushes.Black, marginKiri, y);
                 y += 28;
 
-                string statusUntukCetak = AmbilStatusFilter();
                 string periode = "Periode : " + dtDari.Value.ToString("dd-MM-yyyy") +
                                   " s/d " + dtSampai.Value.ToString("dd-MM-yyyy") +
-                                  "   |   Status : " + statusUntukCetak;
+                                  "   |   Status : " + AmbilStatusFilter();
                 g.DrawString(periode, fontSubJudul, Brushes.Black, marginKiri, y);
                 y += 25;
             }
@@ -268,7 +298,6 @@ namespace Shahira_12RPLD
                 }
 
                 BarisLaporan item = daftarLaporan[indexCetak];
-
                 g.DrawString(item.TanggalPesan, fontIsi, Brushes.Black, kolomX[0], y);
                 g.DrawString(item.Pemesan, fontIsi, Brushes.Black, kolomX[1], y);
                 g.DrawString(item.Kereta, fontIsi, Brushes.Black, kolomX[2], y);
@@ -299,43 +328,6 @@ namespace Shahira_12RPLD
                          fontTotal, Brushes.Black, kolomX[4], y);
 
             e.HasMorePages = false;
-        }
-
-        private void FLaporan_Load(object sender, EventArgs e)
-        {
-            SetupFilter();
-            SetupTabel();
-            SetupPrint();
-
-            TampilkanLaporan();
-        }
-
-        private void btnTampilkan_Click(object sender, EventArgs e)
-        {
-            if (dtDari.Value > dtSampai.Value)
-            {
-                MessageBox.Show("Tanggal 'Dari' tidak boleh lebih besar dari tanggal 'Sampai'");
-                return;
-            }
-
-            TampilkanLaporan();
-        }
-
-        private void btnCetak_Click(object sender, EventArgs e)
-        {
-            if (daftarLaporan.Count == 0)
-            {
-                MessageBox.Show("Tidak ada data untuk dicetak. Tampilkan laporan terlebih dahulu.");
-                return;
-            }
-
-            indexCetak = 0;
-
-            PrintPreviewDialog preview = new PrintPreviewDialog();
-            preview.Document = printDoc;
-            preview.Width = 1000;
-            preview.Height = 700;
-            preview.ShowDialog();
         }
     }
 }

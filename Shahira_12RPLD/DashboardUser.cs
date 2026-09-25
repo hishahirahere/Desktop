@@ -34,5 +34,11 @@ namespace Shahira_12RPLD
             FPembayaran Cari = new FPembayaran() { TopLevel = false, TopMost = true };
             KFKereta.formkereta(Cari, pnlcontent);
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            FProfile profile = new FProfile() { TopLevel = false, TopMost = true };
+            KFKereta.formkereta(profile, pnlcontent);
+        }
     }
 }

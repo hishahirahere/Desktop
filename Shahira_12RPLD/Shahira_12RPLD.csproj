@@ -144,6 +144,12 @@
     <Compile Include="FPilihKursi.Designer.cs">
       <DependentUpon>FPilihKursi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FProfile.Designer.cs">
+      <DependentUpon>FProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRole.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FPilihKursi.resx">
       <DependentUpon>FPilihKursi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FProfile.resx">
+      <DependentUpon>FProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRole.resx">
       <DependentUpon>FRole.cs</DependentUpon>

@@ -19,37 +19,17 @@ namespace Shahira_12RPLD
         private readonly Color WARNA_MERAH = Color.FromArgb(163, 45, 45);
         private readonly Color WARNA_HIJAU = Color.FromArgb(15, 110, 86);
 
-        // ============ STATE PEMESANAN YANG SEDANG DIPILIH ============
-        private string idPemesananDipilih = "";
-
         public FDataPemesanan()
         {
             InitializeComponent();
             dgvDPemesanan.CellClick += dgvDPemesanan_CellClick;
-
-            // Jaga-jaga kalau event Click belum tersambung lewat Form Designer.
-            // Kalau di Designer.cs SUDAH ada baris "this.btnStatus.Click += ...",
-            // HAPUS baris di bawah ini supaya tidak terpanggil dua kali.
-            btnStatus.Click -= btnStatus_Click;
-            btnStatus.Click += btnStatus_Click;
         }
 
         private void FDataPemesanan_Load(object sender, EventArgs e)
         {
-            SetupCombo();
             SetupTabel();
             SetupKolomAksi();
             TampilkanDataPemesanan();
-        }
-
-        // ============ ISI COMBOBOX STATUS SESUAI ENUM DI DATABASE ============
-        private void SetupCombo()
-        {
-            cmbStatus.Items.Clear();
-            cmbStatus.Items.Add("menunggu");
-            cmbStatus.Items.Add("berhasil");
-            cmbStatus.Items.Add("dibatalkan");
-            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         // ============ STYLING TABEL ============
@@ -98,6 +78,9 @@ namespace Shahira_12RPLD
         }
 
         // ============ AMBIL SEMUA DATA PEMESANAN (SISI ADMIN, SEMUA USER) ============
+        // Catatan: status yang ditampilkan di sini adalah status di t_pemesanan,
+        // yang HARUS selalu sinkron dengan hasil verifikasi di halaman Pembayaran.
+        // Halaman ini murni untuk LIHAT & DETAIL, tidak ada ubah status manual.
         private void TampilkanDataPemesanan()
         {
             string query = "SELECT p.id_pemesanan, u.nama_lengkap AS pemesan, k.nama_kereta AS kereta, " +
@@ -129,12 +112,9 @@ namespace Shahira_12RPLD
                 rowGrid.Cells["colStatus"].Style.ForeColor = WarnaStatus(status);
                 rowGrid.Cells["colStatus"].Style.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
 
-                // simpan id_pemesanan|status di Tag baris (buat dipakai internal)
-                rowGrid.Tag = baris["id_pemesanan"].ToString() + "|" + status;
+                // simpan id_pemesanan di Tag baris (dipakai buat buka detail)
+                rowGrid.Tag = baris["id_pemesanan"].ToString();
             }
-
-            idPemesananDipilih = "";
-            cmbStatus.SelectedIndex = -1;
 
             if (dgvDPemesanan.Rows.Count == 0)
             {
@@ -142,48 +122,20 @@ namespace Shahira_12RPLD
             }
         }
 
-        // ============ SAAT BARIS/TOMBOL DIKLIK ============
+        // ============ KLIK "DETAIL PESANAN" -> BUKA FORM DETAIL (READ-ONLY) ============
         private void dgvDPemesanan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+            if (dgvDPemesanan.Columns[e.ColumnIndex].Name != "colAksi") return;
             if (dgvDPemesanan.Rows[e.RowIndex].Tag == null) return;
 
-            string[] data = dgvDPemesanan.Rows[e.RowIndex].Tag.ToString().Split('|');
-            idPemesananDipilih = data[0];
-            string statusSekarang = data[1];
+            string idPemesananDipilih = dgvDPemesanan.Rows[e.RowIndex].Tag.ToString();
 
-            cmbStatus.SelectedItem = statusSekarang;
+            FDetailPesanan f = new FDetailPesanan(idPemesananDipilih);
+            f.ShowDialog(this);
 
-            // Kalau yang diklik kolom Aksi (tombol "Detail Pesanan") -> buka form detail
-            if (dgvDPemesanan.Columns[e.ColumnIndex].Name == "colAksi")
-            {
-                FDetailPesanan f = new FDetailPesanan(idPemesananDipilih);
-                f.ShowDialog(this);
-            }
-        }
-
-        // ============ SIMPAN PERUBAHAN STATUS PEMESANAN ============
-        private void btnStatus_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(idPemesananDipilih))
-            {
-                MessageBox.Show("Pilih dulu salah satu pemesanan di tabel.");
-                return;
-            }
-            if (cmbStatus.SelectedItem == null)
-            {
-                MessageBox.Show("Pilih status barunya dulu.");
-                return;
-            }
-
-            string statusBaru = cmbStatus.SelectedItem.ToString();
-
-            db.crud("UPDATE t_pemesanan SET status = '" + statusBaru + "' " +
-                     "WHERE id_pemesanan = '" + idPemesananDipilih + "'");
-
-            MessageBox.Show("Status pemesanan berhasil diperbarui.",
-                             "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            // refresh tabel setelah detail ditutup, siapa tau status berubah
+            // (misalnya karena admin baru saja verifikasi pembayaran terkait)
             TampilkanDataPemesanan();
         }
     }

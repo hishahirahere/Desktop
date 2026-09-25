@@ -50,8 +50,6 @@ namespace Shahira_12RPLD
             this.label6 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox5 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2CirclePictureBox6 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox7 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,6 +57,8 @@ namespace Shahira_12RPLD
             this.guna2Shapes2 = new Guna.UI2.WinForms.Guna2Shapes();
             this.guna2Shapes3 = new Guna.UI2.WinForms.Guna2Shapes();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2CirclePictureBox11 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.pnldashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -73,10 +73,10 @@ namespace Shahira_12RPLD
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // pnldashboard
@@ -283,7 +283,7 @@ namespace Shahira_12RPLD
             // 
             this.guna2CirclePictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox5.Image")));
             this.guna2CirclePictureBox5.ImageRotate = 0F;
-            this.guna2CirclePictureBox5.Location = new System.Drawing.Point(44, 305);
+            this.guna2CirclePictureBox5.Location = new System.Drawing.Point(46, 488);
             this.guna2CirclePictureBox5.Name = "guna2CirclePictureBox5";
             this.guna2CirclePictureBox5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox5.Size = new System.Drawing.Size(30, 46);
@@ -303,34 +303,11 @@ namespace Shahira_12RPLD
             this.label8.Text = "Pesan Tiket";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // guna2CirclePictureBox6
-            // 
-            this.guna2CirclePictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox6.Image")));
-            this.guna2CirclePictureBox6.ImageRotate = 0F;
-            this.guna2CirclePictureBox6.Location = new System.Drawing.Point(38, 382);
-            this.guna2CirclePictureBox6.Name = "guna2CirclePictureBox6";
-            this.guna2CirclePictureBox6.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox6.Size = new System.Drawing.Size(40, 46);
-            this.guna2CirclePictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2CirclePictureBox6.TabIndex = 11;
-            this.guna2CirclePictureBox6.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(92, 393);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(147, 29);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Tiket Saya";
-            // 
             // guna2CirclePictureBox7
             // 
             this.guna2CirclePictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox7.Image")));
             this.guna2CirclePictureBox7.ImageRotate = 0F;
-            this.guna2CirclePictureBox7.Location = new System.Drawing.Point(38, 454);
+            this.guna2CirclePictureBox7.Location = new System.Drawing.Point(38, 395);
             this.guna2CirclePictureBox7.Name = "guna2CirclePictureBox7";
             this.guna2CirclePictureBox7.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox7.Size = new System.Drawing.Size(40, 46);
@@ -343,7 +320,7 @@ namespace Shahira_12RPLD
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(92, 462);
+            this.label10.Location = new System.Drawing.Point(92, 403);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(170, 29);
             this.label10.TabIndex = 14;
@@ -402,14 +379,14 @@ namespace Shahira_12RPLD
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(31)))), ((int)(((byte)(104)))));
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.guna2CirclePictureBox11);
             this.panel1.Controls.Add(this.guna2Shapes3);
             this.panel1.Controls.Add(this.guna2Shapes2);
             this.panel1.Controls.Add(this.guna2CirclePictureBox3);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.guna2CirclePictureBox7);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.guna2CirclePictureBox6);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.guna2CirclePictureBox5);
             this.panel1.Controls.Add(this.panel4);
@@ -420,6 +397,30 @@ namespace Shahira_12RPLD
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(302, 1170);
             this.panel1.TabIndex = 3;
+            // 
+            // guna2CirclePictureBox11
+            // 
+            this.guna2CirclePictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox11.Image")));
+            this.guna2CirclePictureBox11.ImageRotate = 0F;
+            this.guna2CirclePictureBox11.Location = new System.Drawing.Point(36, 317);
+            this.guna2CirclePictureBox11.Name = "guna2CirclePictureBox11";
+            this.guna2CirclePictureBox11.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox11.Size = new System.Drawing.Size(40, 35);
+            this.guna2CirclePictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2CirclePictureBox11.TabIndex = 30;
+            this.guna2CirclePictureBox11.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(92, 497);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(164, 29);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Profile Saya";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // DashboardUser
             // 
@@ -448,11 +449,11 @@ namespace Shahira_12RPLD
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -476,8 +477,6 @@ namespace Shahira_12RPLD
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox5;
         private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox6;
-        private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label3;
@@ -487,5 +486,7 @@ namespace Shahira_12RPLD
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox11;
     }
 }

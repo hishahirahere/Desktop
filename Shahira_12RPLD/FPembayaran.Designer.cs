@@ -270,6 +270,7 @@ namespace Shahira_12RPLD
             this.Controls.Add(this.panelHeader);
             this.Name = "FPembayaran";
             this.Text = "FPembayaran";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FPembayaran_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPembayaran)).EndInit();
             this.panel2.ResumeLayout(false);
