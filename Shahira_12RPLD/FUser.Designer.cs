@@ -464,14 +464,14 @@ namespace Shahira_12RPLD
             // 
             // Column9
             // 
-            this.Column9.HeaderText = "";
+            this.Column9.HeaderText = "Update";
             this.Column9.MinimumWidth = 8;
             this.Column9.Name = "Column9";
             this.Column9.Width = 150;
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "";
+            this.Column8.HeaderText = "Delete";
             this.Column8.MinimumWidth = 8;
             this.Column8.Name = "Column8";
             this.Column8.Width = 150;
@@ -502,15 +502,6 @@ namespace Shahira_12RPLD
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewImageColumn Column9;
-        private System.Windows.Forms.DataGridViewImageColumn Column8;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2ComboBox cmbrole;
         private Guna.UI2.WinForms.Guna2TextBox txtalamat;
@@ -531,5 +522,14 @@ namespace Shahira_12RPLD
         private System.Windows.Forms.Label nomor;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewImageColumn Column9;
+        private System.Windows.Forms.DataGridViewImageColumn Column8;
     }
 }

@@ -49,7 +49,8 @@ namespace Shahira_12RPLD
         }
 
         // ============ SATU TOMBOL: SIMPAN PROFIL + GANTI PASSWORD (JIKA DIISI) ============
-        private void btnSimpan_Click(object sender, EventArgs e)
+
+        private void btnSimpan_Click_1(object sender, EventArgs e)
         {
             // --- 1. Validasi & simpan data profil (selalu dijalankan) ---
             if (string.IsNullOrWhiteSpace(txtNamaLengkap.Text) ||

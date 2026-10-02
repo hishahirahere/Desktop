@@ -72,7 +72,13 @@ namespace Shahira_12RPLD
 
         private void label3_Click(object sender, EventArgs e)
         {
-
+            DialogResult setuju = MessageBox.Show("yakin mau keluar?", "pemberitahuan", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (setuju == DialogResult.Yes)
+            {
+                Form1 dinda = new Form1();
+                dinda.Visible = true;
+                this.Hide();
+            }
         }
 
         private void label16_Click(object sender, EventArgs e)

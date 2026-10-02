@@ -69,8 +69,10 @@ namespace Shahira_12RPLD
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(588, 108);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(816, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(411, 46);
             this.label1.TabIndex = 20;
@@ -158,7 +160,9 @@ namespace Shahira_12RPLD
             // lblRingkasan
             // 
             this.lblRingkasan.AutoSize = true;
+            this.lblRingkasan.BackColor = System.Drawing.Color.Transparent;
             this.lblRingkasan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRingkasan.ForeColor = System.Drawing.Color.White;
             this.lblRingkasan.Location = new System.Drawing.Point(50, 245);
             this.lblRingkasan.Name = "lblRingkasan";
             this.lblRingkasan.Size = new System.Drawing.Size(492, 32);
@@ -169,8 +173,10 @@ namespace Shahira_12RPLD
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(548, 172);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(769, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(492, 32);
             this.label3.TabIndex = 26;

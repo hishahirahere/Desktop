@@ -238,6 +238,7 @@ namespace Shahira_12RPLD
             this.guna2Button3.Size = new System.Drawing.Size(286, 50);
             this.guna2Button3.TabIndex = 16;
             this.guna2Button3.Text = "Tampil Data";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click_1);
             // 
             // guna2Button2
             // 

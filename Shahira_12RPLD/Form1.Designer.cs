@@ -219,6 +219,7 @@ namespace Shahira_12RPLD
             this.TXTPASS.Location = new System.Drawing.Point(39, 364);
             this.TXTPASS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TXTPASS.Name = "TXTPASS";
+            this.TXTPASS.PasswordChar = '●';
             this.TXTPASS.PlaceholderText = "";
             this.TXTPASS.SelectedText = "";
             this.TXTPASS.Size = new System.Drawing.Size(366, 48);
